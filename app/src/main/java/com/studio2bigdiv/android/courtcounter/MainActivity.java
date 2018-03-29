@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     int scoreTeamA = 0;
+    int scoreTeamB = 0;
 
     /**
      * Displays the given score for Team A.
@@ -16,6 +17,22 @@ public class MainActivity extends AppCompatActivity {
         scoreTeamA = scoreTeamA + score;
         TextView scoreView = (TextView) findViewById(R.id.team_a_score);
         scoreView.setText(String.valueOf(scoreTeamA));
+    }
+
+    public void displayForTeamB(View v) {
+        int score = Integer.parseInt(v.getTag().toString());
+        scoreTeamB = scoreTeamB + score;
+        TextView scoreView = (TextView) findViewById(R.id.team_b_score);
+        scoreView.setText(String.valueOf(scoreTeamB));
+    }
+
+    public void reset(View v) {
+        scoreTeamA = 0;
+        scoreTeamB = 0;
+        TextView scoreViewA = (TextView) findViewById(R.id.team_a_score);
+        scoreViewA.setText(String.valueOf(scoreTeamA));
+        TextView scoreViewB = (TextView) findViewById(R.id.team_b_score);
+        scoreViewB.setText(String.valueOf(scoreTeamB));
     }
 
     @Override
